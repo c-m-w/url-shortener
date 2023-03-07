@@ -1,0 +1,12 @@
+<!-- input -->
+
+<div class="input">
+    <div class="input-underline">
+        <input type="text" #url (input)="changeURL(url.value)" (focus)="focus()" (focusout)="loseFocus()" placeholder="enter a URL..." />
+        <div class="underline" [@focus]="focussed || urlString.length !== 0"></div>
+    </div>
+    <button
+        [@urlEntered]="urlString.length !== 0"
+        [disabled]="urlString.length === 0"
+        (click)="shortenURL()">shorten</button>
+</div>

@@ -1,0 +1,36 @@
+/* input styles */
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--light);
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    width: 30vw;
+    margin: 2rem auto;
+}
+
+.input-underline {
+    flex-grow: 1;
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+input {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+button {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    border-left: 1px solid var(--text);
+}
+
+.underline {
+    height: 1px;
+    background-color: var(--text);
+}
