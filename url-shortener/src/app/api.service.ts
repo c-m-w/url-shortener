@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { URLEntry } from './URLEntry';
 
@@ -8,15 +7,54 @@ import { URLEntry } from './URLEntry';
 })
 export class ApiService {
 
+    private shortenedURL: URLEntry = {baseURL: "", shortenedURL: ""};
+    private error: string = "";
+
     constructor(private http: HttpClient) { }
 
-    shortenURL(url: string) {
+    validateProtocol(url: string): boolean {
 
-        return this.http.post<URLEntry>("http://localhost:5000/api/shorten", {baseURL: url});
+        return url.startsWith("http://") || url.startsWith("https://");
     }
 
-    getShortenedURLs() {
+    shortenURL(url: string): boolean {
 
-        return this.http.get<Array<URLEntry>>("http://localhost:5000/api/url");
+        this.error = "";
+
+        if (!this.validateProtocol(url)) {
+
+            this.error = "please add a protocol (i.e., http:// or https://) to the URL";
+            return false;
+        }
+
+        this.http.post<URLEntry>("http://localhost:5000/api/shorten", { baseURL: url }).subscribe(
+            (m: URLEntry) => {
+                if (m.shortenedURL !== "error") {
+
+                    this.shortenedURL = m;
+                    this.error = "";
+                } else {
+
+                    this.error = "the specified URL cannot be reached";
+                    this.shortenedURL.baseURL = "";
+                }
+            },
+            error => {
+                
+                this.error = error.statusText + ": " + error.message;
+                this.shortenedURL.baseURL = "";
+            });
+
+        return true;
+    }
+
+    getError(): string {
+
+        return this.error ? this.error : "";
+    }
+
+    getShortenedURL() {
+
+        return this.shortenedURL && this.shortenedURL.baseURL !== "" ? this.shortenedURL : null;
     }
 }

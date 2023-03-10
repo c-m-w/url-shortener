@@ -18,15 +18,31 @@ public class APIProvider {
 	public record Message(String data, boolean success, String message) { };
 	
 	private URLRepository repo;
+	private ConnectionVerifier verifier;
 	
 	public APIProvider(URLRepository repo) {
 		
 		this.repo = repo;
+		this.verifier = new ConnectionVerifier();
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/shorten", method = RequestMethod.POST)
     public ShortenedURL shorten(@RequestBody ShortenedURL url) {
+		
+		if (!verifier.Verify(url.getBaseURL())) {
+			
+			ShortenedURL error = new ShortenedURL("");
+			
+			error.setShortenedURL("error");
+			
+			return error;
+		}
+		
+		if (null != repo.findByShortenedURL(url.getShortenedURL())) {
+			
+			return shorten(new ShortenedURL(url.getBaseURL()));
+		}
 		
 		return repo.saveAndFlush(url);
 	}

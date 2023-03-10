@@ -1,0 +1,42 @@
+/* output styles */
+
+.shortened-output {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+    gap: 0 0.25rem;
+}
+
+.label {
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.value {
+    text-align: left;
+    justify-self: start;
+}
+
+button {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+
+    grid-column: 2 / span 1;
+    background-color: var(--dark);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border);
+
+    margin-left: auto;
+    
+    transition: background-color 0.1s linear;
+}
+
+button:hover {
+
+    background-color: var(--light);
+
+    transition: background-color 0.1s linear;
+}

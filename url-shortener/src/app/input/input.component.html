@@ -1,14 +1,14 @@
 <!-- input -->
 
-<app-shadow-box [interactionState]="focussed">
+<app-shadow-box [interactionState]="focussed" [title]="'enter your URL'">
     <div class="input">
         <div class="input-underline">
-            <input type="text" #url (input)="changeURL(url.value)" (focus)="focus()" (focusout)="loseFocus()" placeholder="enter a URL..." />
+            <input type="text" #url (input)="changeURL(url.value)" (focus)="focus()" (focusout)="loseFocus()" placeholder="..." />
             <div class="underline animated-child" [@focus]="focussed || urlString.length !== 0"></div>
         </div>
         <button
             [@urlEntered]="urlString.length !== 0"
             [disabled]="urlString.length === 0"
-            (click)="shortenURL()">shorten</button>
+            (click)="shortenURL() && url.value = ''">shorten</button>
     </div>
 </app-shadow-box>

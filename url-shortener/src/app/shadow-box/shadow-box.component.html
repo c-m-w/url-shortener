@@ -1,7 +1,6 @@
 <!-- shadow box -->
 
-<div class="shadow-box" [@interacting]="interactionState">
-    <div *ngIf="interactionState" class="left"></div>
-    <div *ngIf="interactionState" class="bottom"></div>
+<div class="shadow-box" [class.shadow]="interactionState">
+    <h1>{{ title }}</h1>
     <ng-content></ng-content>
 </div>

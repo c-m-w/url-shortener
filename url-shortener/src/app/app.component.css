@@ -1,3 +1,16 @@
 /* app styles */
 
+main {
+    max-width: 600px;
+    width: 30vw;
 
+    margin: 1rem auto;
+
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+main > * {
+    width: 100%;
+}

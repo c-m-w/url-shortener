@@ -74,16 +74,8 @@ export class InputComponent {
         this.focussed = false;
     }
 
-    shortenURL(): void {
+    shortenURL(): boolean {
 
-        console.log("communicating...");
-
-        this.apiService.shortenURL(this.urlString).subscribe((m: URLEntry) => {
-
-            console.log(m);
-        },
-        error => {
-            console.log("error");
-        })
+        return this.apiService.shortenURL(this.urlString);
     }
 }

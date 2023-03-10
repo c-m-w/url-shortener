@@ -9,7 +9,7 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 public class TemplateEngine {
 
 	 @Bean
-	 public static SpringTemplateEngine GetTemplateEngine() {
+	 public SpringTemplateEngine GetTemplateEngine() {
 		 
 		 ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
 		 SpringTemplateEngine templateEngine = new SpringTemplateEngine();

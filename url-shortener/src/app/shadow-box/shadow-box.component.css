@@ -2,7 +2,7 @@
 
 .shadow-box {
     position: relative;
-    width: max-content;
+    width: 100%;
 
     background-color: var(--dark);
     padding: 0 0 1rem 1rem;
@@ -10,26 +10,18 @@
     border-left: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     border-bottom-left-radius: var(--border-radius);
-    margin: 0 auto;
+
+    transition: box-shadow 0.1s linear;
 }
 
-.shadow-box .left {
-    position: absolute;
+.shadow-box.shadow {
 
-    left: 0;
-    top: 0;
-    height: calc(100% + 6px);
-    width: 3px;
-    box-shadow: -6px 0px 3px var(--shadow);
+    box-shadow: -6px 6px 6px var(--shadow);
 }
 
-.shadow-box .bottom {
-    position: absolute;
-
-    left: -3px;
-    bottom: 0;
-    width: calc(100% + 3px);
-    height: 3px;
-    box-shadow: 0px 6px 3px var(--shadow);
+h1 {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
-

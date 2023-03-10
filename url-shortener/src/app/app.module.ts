@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InputComponent } from './input/input.component';
 import { ShadowBoxComponent } from './shadow-box/shadow-box.component';
-import { HistoryComponent } from './history/history.component';
+import { TitleComponent } from './title/title.component';
+import { OutputComponent } from './output/output.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { HistoryComponent } from './history/history.component';
         HeaderComponent,
         InputComponent,
         ShadowBoxComponent,
-        HistoryComponent
+        TitleComponent,
+        OutputComponent
     ],
     imports: [
         BrowserModule,

@@ -10,21 +10,28 @@ import org.thymeleaf.context.Context;
 public class RedirectProvider {
 	
 	private URLRepository repo;
+	private TemplateEngine eng;
 	
-	public RedirectProvider(URLRepository repo) {
+	public RedirectProvider(URLRepository repo, TemplateEngine eng) {
 		
 		this.repo = repo;
+		this.eng = eng;
 	}
 	
 	@GetMapping("/redir/{url}")
 	@ResponseBody
 	public String redirect(@PathVariable String url) {
 
-		ShortenedURL u = repo.findByShortenedURL(url); // .orElseThrow()
+		ShortenedURL u = repo.findByShortenedURL(url);
 		Context ctx = new Context();
+		
+		if (null == u) {
+			
+			return eng.GetTemplateEngine().process("error.html", ctx);
+		}
 		
 		ctx.setVariable("content", "0; url='" + u.getBaseURL() + "'");
 		
-		return TemplateEngine.GetTemplateEngine().process("redirect.html", ctx);
+		return eng.GetTemplateEngine().process("redirect.html", ctx);
 	}
 }

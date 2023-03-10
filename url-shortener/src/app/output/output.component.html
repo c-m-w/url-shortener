@@ -1,0 +1,15 @@
+<!-- output -->
+
+<app-shadow-box [@fadeIn]="true" [interactionState]="false" [title]="'Error'" *ngIf="getError().length !== 0">
+    <p>{{ getError() }}</p>
+</app-shadow-box>
+
+<app-shadow-box [@fadeIn]="true" [interactionState]="false" [title]="'Output'" *ngIf="getShortenedURL()">
+    <div class="shortened-output">
+        <p class="label">input</p>
+        <a class="value" href="{{getShortenedURL()!.baseURL}}" target="_blank">{{ getShortenedURL()!.baseURL }}</a>
+        <p class="label">shortened</p>
+        <a class="value" href="{{ formatShortenedURL() }}" target="_blank">{{ formatShortenedURL() }}</a>
+        <button (click)="copyLink()">copy</button>
+    </div>
+</app-shadow-box>
