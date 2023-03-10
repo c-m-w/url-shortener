@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
     trigger,
     state,
@@ -8,7 +8,7 @@ import {
     group
 } from "@angular/animations";
 import { ApiService } from '../api.service';
-import { Message } from '../message';
+import { URLEntry } from '../URLEntry';
 
 @Component({
     selector: 'app-input',
@@ -78,7 +78,7 @@ export class InputComponent {
 
         console.log("communicating...");
 
-        this.apiService.shortenURL(this.urlString).subscribe((m: Message) => {
+        this.apiService.shortenURL(this.urlString).subscribe((m: URLEntry) => {
 
             console.log(m);
         },

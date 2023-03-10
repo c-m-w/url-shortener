@@ -1,0 +1,11 @@
+<!-- history -->
+
+<app-shadow-box>
+    <div class="history">
+        <h1>history</h1>
+        <div class="history-items" *ngFor="let url of history">
+            <p>{{ url.baseURL }}</p>
+            <a href="http://localhost:5000/api/url/{{url.shortenedURL}}" target="_blank">http://localhost:5000/api/url/{{url.shortenedURL}}</a>
+        </div>
+    </div>
+</app-shadow-box>

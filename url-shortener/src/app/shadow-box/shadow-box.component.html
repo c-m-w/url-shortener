@@ -1,0 +1,7 @@
+<!-- shadow box -->
+
+<div class="shadow-box" [@interacting]="interactionState">
+    <div *ngIf="interactionState" class="left"></div>
+    <div *ngIf="interactionState" class="bottom"></div>
+    <ng-content></ng-content>
+</div>

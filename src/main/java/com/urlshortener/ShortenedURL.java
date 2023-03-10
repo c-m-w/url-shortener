@@ -16,7 +16,8 @@ public class ShortenedURL {
 	public ShortenedURL() {	}
 	
 	public ShortenedURL(String baseURL) {
-		
+
+		shorten();
 		this.baseURL = baseURL;
 	}
 	

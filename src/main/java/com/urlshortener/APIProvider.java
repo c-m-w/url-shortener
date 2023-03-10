@@ -30,13 +30,15 @@ public class APIProvider {
 		
 		return repo.saveAndFlush(url);
 	}
-	
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/api/url/{url}")
 	ShortenedURL one(@PathVariable String url) {
 		
 		return repo.findByShortenedURL(url); // .orElseThrow()
 	}
-	
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/api/url")
 	List<ShortenedURL> all() {
 		

@@ -1,0 +1,35 @@
+/* shadow box styles */
+
+.shadow-box {
+    position: relative;
+    width: max-content;
+
+    background-color: var(--dark);
+    padding: 0 0 1rem 1rem;
+
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-bottom-left-radius: var(--border-radius);
+    margin: 0 auto;
+}
+
+.shadow-box .left {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    height: calc(100% + 6px);
+    width: 3px;
+    box-shadow: -6px 0px 3px var(--shadow);
+}
+
+.shadow-box .bottom {
+    position: absolute;
+
+    left: -3px;
+    bottom: 0;
+    width: calc(100% + 3px);
+    height: 3px;
+    box-shadow: 0px 6px 3px var(--shadow);
+}
+
