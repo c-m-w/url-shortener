@@ -27,7 +27,7 @@ export class ApiService {
             return false;
         }
 
-        this.http.post<URLEntry>("http://localhost:5000/api/shorten", { baseURL: url }).subscribe(
+        this.http.post<URLEntry>("https://shorten-url.herokuapp.com/api/shorten", { baseURL: url }).subscribe(
             (m: URLEntry) => {
                 if (m.shortenedURL !== "error") {
 

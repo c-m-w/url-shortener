@@ -45,7 +45,7 @@ export class OutputComponent {
 
     formatShortenedURL(): string {
 
-        return 'http://localhost:5000/redir/' + this.getShortenedURL()!.shortenedURL;
+        return 'https://shorten-url.herokuapp.com/redir/' + this.getShortenedURL()!.shortenedURL;
     }
 
     copyLink(): void {

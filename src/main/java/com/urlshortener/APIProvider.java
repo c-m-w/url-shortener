@@ -51,7 +51,7 @@ public class APIProvider {
 	@GetMapping("/api/url/{url}")
 	ShortenedURL one(@PathVariable String url) {
 		
-		return repo.findByShortenedURL(url); // .orElseThrow()
+		return repo.findByShortenedURL(url);
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
